@@ -1,0 +1,85 @@
+{
+	"info": {
+		"_postman_id": "8b238175-7642-4f8e-a9d4-0f4df96db533",
+		"name": "API AUTOMATION TEST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CREATE BLOG POST",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0dac2b57-4ede-49d2-9f11-ab21680725ad",
+						"exec": [
+							"var bloglink _ pm.response.to.have.header(\"Location\")",
+							"pm.environment.set(\"bloglink\", pm.response.headers.get('Location'));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"content\": \"My First blog Post  :)\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://jsonblob.com/api/jsonBlob",
+					"protocol": "https",
+					"host": [
+						"jsonblob",
+						"com"
+					],
+					"path": [
+						"api",
+						"jsonBlob"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET BLOG POST",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
